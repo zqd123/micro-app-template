@@ -29,7 +29,9 @@ export default {
             hash && (path += `/#${hash}`)
             // 主应用跳转
             this.$router.push(path)
-          } else {
+          }
+          // 切换子路由
+          setTimeout(() => {
             let childPath = null
             // child-vite 和 child-react17子应用是hash路由，hash值就是它的页面地址，这里单独处理
             if (hash) {
@@ -41,7 +43,7 @@ export default {
             }
             // 主应用通过下发data数据控制子应用跳转
             microApp.setData(appName, { path: childPath })
-          }
+          }, 10)
 
         },
       }
