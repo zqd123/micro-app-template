@@ -96,8 +96,9 @@ let router: Router | null = null
 let history: RouterHistory | null = null
 // 将渲染操作放入 mount 函数
 function mount () {
-  // __MICRO_APP_BASE_ROUTE__ 为micro-app传入的基础路由
-  history = createWebHistory(window.__MICRO_APP_BASE_ROUTE__ || process.env.BASE_URL)
+  // __MICRO_APP_BASE_ROUTE__ 为micro-app传入的基础路由(下面process会报错，暂时注释掉)
+  // history = createWebHistory(window.__MICRO_APP_BASE_ROUTE__ || process.env.BASE_URL)
+  history = createWebHistory(window.__MICRO_APP_BASE_ROUTE__)
   router = createRouter({
     history,
     routes,
